@@ -1,0 +1,164 @@
+
+/*CONTENIDO GENERICO*/
+
+*{
+  margin: 0px;
+  padding:0px;
+}
+
+
+body{
+  overflow-x: hidden;
+}
+
+.txt-fuente{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.cont-page{
+   /*---------------- HEIGH VARIABLE--  PADRE-- DEPENDE DEL PADRE---------------*/
+  min-height: 700px;
+  overflow: hidden;
+ /*---------------- HEIGH VARIABLE--  PADRE-- DEPENDE DEL PADRE---------------*/
+}
+
+
+/*CONTENIDO CENTRO DE LA PAGINA*/
+
+.cont-page .pag-center{
+
+  text-align: center;
+  background: white;
+  min-height:100%;
+  -webkit-box-shadow: 1px 1px 23px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 23px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 23px 0px rgba(0,0,0,0.75);
+ 
+ 
+  min-height: 700px;
+ /*---------------- HEIGH VARIABLE--  HIJO-- DEPENDE DEL PADRE---------------*/
+    padding-bottom: 30000px;
+    margin-bottom: -30000px;
+ /*---------------- HEIGH VARIABLE--  HIJO-- DEPENDE DEL PADRE---------------*/
+
+}
+
+
+
+/*CONTENIDO LATERAL IZQUIERDO*/
+
+/*boton atras*/
+.cont-page .lat-izquierdo{
+  text-align: center;
+  background:-webkit-gradient(linear, 64% 23%, 1% 100%, from(#446F70), to(#225480));
+
+  min-height: 700px;
+ /*---------------- HEIGH VARIABLE--  HIJO-- DEPENDE DEL PADRE---------------*/
+    padding-bottom: 30000px;
+    margin-bottom: -30000px;
+ /*---------------- HEIGH VARIABLE--  HIJO-- DEPENDE DEL PADRE---------------*/
+
+  
+}
+
+.lat-izquierdo .btn-back{
+  margin-left: 50%;
+  margin-top: 10%;
+  max-height: 75px;
+  max-width: 75px;
+  border-radius: 100px;
+  cursor: hand;
+  cursor:pointer;
+   -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+ 
+}
+
+.lat-izquierdo .btn-back:hover{
+  box-shadow: 2px 2px 1px 1px black;
+
+
+}
+
+
+/*CONTENIDO DE LA BARRA NAV*/
+.mst-navegacion{
+  text-align: center;
+  height: 100px;
+  background-color: #f1c40f;
+  box-shadow: 10px 0px 20px;
+  z-index: 5;
+}
+
+.btn-logo{
+  max-width:90px;
+  max-height: 90px;
+  margin-top:-6.5%; /*varia dependiendo del margin top del .txt-colegio*/
+  z-index: 1; 
+  background-size: contain;
+  }
+
+
+.txt-colegio{
+ 
+ /*font-family: 'Ubuntu', sans-serif;
+font-family: 'Indie Flower', cursive;
+font-family: 'Nunito Sans', sans-serif;*/
+  color: white;
+  margin-top: 40px;
+  text-align: left;
+  margin-left: 100px;
+  background-size: contain;
+}
+
+
+
+/*CONTENIDO LATERAL DERECHO*/
+.cont-page .lat-derecho{
+  text-align: center; 
+  background:-webkit-gradient(linear, 64% 23%, 1% 100%, from(#446F70), to(#225480));
+  height:auto; 
+
+  min-height: 700px;
+ /*---------------- HEIGH VARIABLE--  HIJO-- DEPENDE DEL PADRE---------------*/
+    padding-bottom: 30000px;
+    margin-bottom: -30000px;
+ /*---------------- HEIGH VARIABLE--  HIJO-- DEPENDE DEL PADRE---------------*/
+}
+.img-profile{
+  margin-top: 10px;
+  height: 100px;
+  width: 100px;
+  margin-left: 25%;
+}
+
+.txt-nombre{
+  color: white;
+
+}
+
+.img-logout{
+  margin-top: 10px;
+  height: 50px;
+  width: 50px;
+  margin-left: 36%;
+  border-radius: 100px;
+}
+
+.img-logout:hover{
+  box-shadow: 1px 2px 1px 0px;
+   cursor: hand;
+  cursor:pointer;
+}
+
+
+
+
+
+
+
+
+

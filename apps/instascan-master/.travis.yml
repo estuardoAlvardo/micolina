@@ -1,0 +1,15 @@
+language: node_js
+  - '6'
+install: npm install
+script: gulp release
+env:
+  global:
+    - COMMIT_AUTHOR_NAME: "'Estuardo Alvarado'"
+    - COMMIT_AUTHOR_EMAIL: 'estuard.alva@gmail.com'
+    
+deploy: 
+  provider: script
+  script: bash ./deploy/deploy.sh
+  skip_cleanup: true
+  on:
+    branch: master

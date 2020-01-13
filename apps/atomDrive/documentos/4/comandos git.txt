@@ -1,0 +1,48 @@
+git comandos-
+-----------------------
+cd c:/xampp/htdocs/atomolms
+
+
+
+git init: este comando marca el inicio de nuestro proyecto con esto le dicimos a git que empiece a monitoriar todos nuestros cambio
+
+git status: estado de nuestro proyecto nos muestra que archivos no han sido agregado
+
+git add: este comando decidimos que archivos estan listos para el siguiente paso o commit como guardar cambios.
+
+
+git add -A: guardamos todos los archivos para no hacerlos uno por uno.
+
+git commit - m "comentario del cambio": esto lo que realiza es el cambio que se realiza al momento de realizar un cambio
+
+
+gi checkout sha: con esto viajamos en el tiempo a esta opcion guardada regresamos a los cambios de este ultimo commit
+
+git checkout master: con esto volvemos a el ulmo commit
+
+
+git reset --soft sha: no toca codigo borra solo commit, no toca el working area
+
+git reset --mixed sha: no borrar stagin area ni toca el working area no se usa mucho
+
+git reset --hard : borra codigo, commit 
+
+
+nota para eliminar todo dentro de un proyecto utilizamos 
+rm -rf .git   se elimina la carpeta con todo
+
+
+github 
+--------------------------
+
+
+git remote origin [http del repositorio de github]
+con esto conectamos nuestro repositorio local al remoto
+
+
+git push origin [master u otra rama] 
+con esto pasamos los cambio del repositorio local al repositorio remoto
+
+
+
+

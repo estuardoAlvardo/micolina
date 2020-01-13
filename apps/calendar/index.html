@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='fullcalendar.min.css' rel='stylesheet' />
+<link href='fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<script src='lib/moment.min.js'></script>
+<script src='lib/jquery.min.js'></script>
+<script src='fullcalendar.min.js'></script>
+<script src='locale/es.js'></script>
+
+
+<!--   INSERCION DE PLUGIN RELOJ -->
+ <link href="clockpicker.css" rel="stylesheet" />
+ <script src="clockpicker.js"></script>
+ <link href="bootstrap-clockpicker.css" rel="stylesheet" />
+
+
+
+<script>
+
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+        header:{
+          left:'today,prev,next',
+          center:'title',
+          right: 'month, agendaWeek, agendaDay'
+        },
+        dayClick:function(date,jsEvent,view){
+          //activacion de botones o desactivacion
+          $("#btnAgregar").prop('disabled',false);
+          $("#btnModificar").prop('disabled',true);
+          $("#btnBorrar").prop('disabled',true);
+
+
+          limpiarFormulario();
+          $('#fecha').val(date.format());
+          
+          $('#crearEvento').modal();
+
+
+        },
+        
+        events:'http://localhost/calendar/eventos.php',
+        
+        eventClick:function(calEvent,jsEvent,view){
+           $("#btnAgregar").prop('disabled',true);
+          $("#btnModificar").prop('disabled',false);
+          $("#btnBorrar").prop('disabled',false);
+
+
+          $('#id').val(calEvent.id);
+          $('#titulo').val(calEvent.title);
+          $('#descripcion').val(calEvent.descripcion);
+          var fechaHora=calEvent.start._i.split(" ");          
+          $('#fecha').val(fechaHora[0]);
+          $('#hora').val(fechaHora[1]);
+          $('#color').val(calEvent.color);
+          $('#crearEvento').modal();
+
+        },
+        editable:true,
+        eventDrop:function(calEvent){
+          $('#id').val(calEvent.id);
+          $('#titulo').val(calEvent.title);
+          $('#descripcion').val(calEvent.descripcion);
+          var fechaHora=calEvent.start.format().split("T");          
+          $('#fecha').val(fechaHora[0]);
+          $('#hora').val(fechaHora[1]);
+          $('#color').val(calEvent.color);
+          datos();
+          enviarDatos('modificar',NuevoEvento,true);
+
+        }
+        
+
+      
+    });
+
+  });
+
+</script>
+<style>
+
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .fc-content{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+    .fc-content:hover{
+   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  .fc th{
+    padding: 10px 0px;
+  background-color:#4285f4;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    
+  }
+
+
+</style>
+</head>
+<body>
+
+  <div id='calendar'></div>
+
+  
+
+  <div id="crearEvento" class="modal fade" role="dialog" style="background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);">
+  <div class="modal-dialog">
+    <form role="form">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Crear Evento</h4>
+      </div>
+      <div class="modal-body">
+        <div >
+            <div class="form-group">
+             <input type="text" class="form-control" id="id" placeholder="Id" name="id" style="display: none;">
+            </div>
+            <div class="form-group">
+             <input type="text" class="form-control" id="titulo" placeholder="Titulo Evento" name="titulo">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" id="descripcion" placeholder="Descripción" name="descripcion"></textarea> 
+            </div>       
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="fecha" placeholder="Fecha" name="fecha">
+            </div>
+            <div class="form-group">
+             <div class="input-group clockpicker " data-autoclose="true">
+               <span class="input-group-addon">
+               <span class="glyphicon glyphicon-time"></span>
+               </span>
+               <input type="text" class="form-control" id="hora" value="07:00" />
+               </div>
+            </div>
+            <div class="form-group col-md-4">
+              <input type="color" class="form-control" id="color" placeholder="color" value="#e67e22" name="color">
+            </div><br><br> 
+
+            <h4>¿Quienes quieres que lo vean?</h4>
+            <select class="form-control" id="vistaEvento">              
+            <option selected value="1">Todos</option>
+            <option value="2">Primaria</option>
+            <option value="3">Basicos</option>
+            <option value="4">Diversificado</option>
+            <option value="5">Docentes</option>
+            <option value="6">Padres de familia</option>
+          </select>
+        
+
+         
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success"  id="btnAgregar">Guardar Evento</button>
+        <button type="button" class="btn btn-danger" id="btnModificar">Modificar</button>
+        <button type="button" class="btn btn-warning" id="btnBorrar">Borar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">cancelar</button>
+       </form>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+
+var NuevoEvento;
+
+function datos(){
+    NuevoEvento = {
+        id:$('#id').val(),
+        title:$('#titulo').val(),
+        descripcion:$('#descripcion').val(),
+        start:$('#fecha').val()+" "+$('#hora').val(),
+        color:$('#color').val(),
+        textColor:"#ffffff",
+        end:$('#fecha').val()+" "+$('#hora').val()
+      }
+}
+
+
+
+  $('#btnAgregar').click(function(){
+    
+      datos();
+      enviarDatos('agregar',NuevoEvento);      
+       
+  });
+
+    $('#btnBorrar').click(function(){
+    
+      datos();
+      enviarDatos('eliminar',NuevoEvento);      
+       
+  });
+
+
+    $('#btnModificar').click(function(){
+    
+      datos();
+      enviarDatos('modificar',NuevoEvento);      
+       
+  });
+
+
+
+
+  function enviarDatos(accion,objEvento,modal){
+    $.ajax({
+      type:'POST',
+      url:'eventos.php?accion='+accion,
+      data:objEvento,
+      success:function(msg){
+        if(msg){
+          $('#calendar').fullCalendar('refetchEvents',NuevoEvento);
+          if(!modal){
+            $('#crearEvento').modal('toggle');
+          }
+          
+        }
+      },
+      error:function(){
+        alert('hay un error');
+      }
+    });
+  }
+
+  $('.clockpicker').clockpicker();
+
+  function limpiarFormulario(){
+        $('#id').val('');
+          $('#titulo').val('');
+          $('#descripcion').val(''); 
+          $('#vistaEvento').val(1); 
+          $('#hora').val('7:00');      
+
+  }
+</script>
+
+
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

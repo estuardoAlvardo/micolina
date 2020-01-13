@@ -1,0 +1,88 @@
+
+hr.style13 {
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px #8c8b8b inset;
+  margin-top:-5px;
+}
+
+
+
+.item{
+  
+  min-height: 120px;
+  min-width: 120px;
+  margin-top:0px;
+  text-align: center;
+  margin-left: 40px; 
+  background-size: contain;
+}
+.item p{
+  text-align: center;
+}
+
+.option{
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+}
+
+.option:hover{
+  box-shadow: 1px 2px 1px 0px;
+  cursor: hand;
+  cursor:pointer;
+}
+
+
+
+.sinfondo{
+  background:-webkit-gradient(radial, -21 0, 0, 220 -257, 465, from(#3B98CF), to(#FF4E28));
+  background:-moz-gradient(radial, -21 0, 0, 220 -257, 465, from(#3B98CF), to(#FF4E28));
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  
+  min-width: 110px;
+  min-height: 100px;
+
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  display: inline-block;
+
+  border-width: 50px;
+  border-color: rgba(0,0,0,0);
+
+
+   -webkit-transition: 0.7s ease;
+  -moz-transition: 0.7s ease;
+  -ms-transition: 0.7s ease;
+  -o-transition: 0.7s ease;
+  transition: 0.7s ease;
+
+}
+
+.sinfondo:hover{
+  box-shadow: 3px 5px 5px 0px;
+  cursor: hand;
+  cursor:pointer;
+ border-color: rgba(0, 0, 0, 0.5);
+ border-width:0;
+ padding-top: 50px;
+
+}
+.sinfondo{border-style: dashed;
+          }
+
+.img-fondo{
+  width: 60px;
+  height: 60px;
+  margin-top:-30px;
+  margin-left: -30px;
+  position: absolute;
+}
+
+
+.iconoLeft{
+  margin-left: -80px;
+}
