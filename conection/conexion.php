@@ -1,7 +1,7 @@
 <?php
  
 $databaseHost = 'localhost';
-$databaseName = 'micolinaNuevo';
+$databaseName = 'atom1';
 $databaseUsername = 'root';
 $databasePassword = 'Admin11!';
  

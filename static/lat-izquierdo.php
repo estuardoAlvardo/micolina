@@ -19,7 +19,7 @@ $_SESSION['notiDrive']=$obtenerCompartidos->rowCount();
 
 //datos a modificar para produccion
 
-  $urlComands='http://localhost/atomolms'; //modificar 
+  $urlComands='https://micolina.atomolector.com/'; //modificar 
 
 
  ?>
