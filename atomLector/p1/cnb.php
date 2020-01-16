@@ -13,6 +13,7 @@ header('Location: ../../index.html');
 require("../../conection/conexion.php");
   $_GET['noLectura'];
   $_GET['intento'];
+  $_GET['gradoB'];
   $fundamento="cnb";
   $sq1 = ("SELECT *  FROM atomolector as lectura join cuestionario as cues on lectura.idLectura=cues.idLectura join itemopcionmultiple as item on item.idCuestionario=cues.idCuestionario where lectura.idLectura=:idLectura AND fundamento=:fundamento");
     $obtenerCuestionario = $dbConn->prepare($sq1);
@@ -372,6 +373,8 @@ input#fort:checked ~ label  {
  <input type="text" name="idUsuario" id="" value="<?php echo $_SESSION['idUsuario']; ?>" style="display: none;">
 
  <input type="text" name="idLecturaEnviado" id="idLecturaEnviar" value="" style="display: none;">
+
+ 
  <input type="text" name="cantidadPreguntas" value="<?php echo $consulta; ?>" style="display: none;">
   <input type="text" name="tiempo" id="tiempo" value="" style="display: none;">
    <input type="text" name="intento" value="<?php echo $_GET['intento']; ?>" style="display: none;">

@@ -1,4 +1,4 @@
-<?php 
+a<?php 
 session_start();
 
 //validacion session

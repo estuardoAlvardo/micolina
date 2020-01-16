@@ -81,6 +81,7 @@ if($_GET['gradoB']==3){
       $buscarIntentosCnb->bindParam(':idCuestionario',$_SESSION['idCnb'], PDO::PARAM_STR); 
       $buscarIntentosCnb->execute();
       $hayIntentos2=$buscarIntentosCnb->rowCount();
+      $urlresultado='resultadoCnb3p.php';
 
 }
 
@@ -119,11 +120,10 @@ if($_GET['gradoB']>=1 and $_GET['gradoB']<=2){
       $buscarIntentosCnb->execute();
       $hayIntentos2=$buscarIntentosCnb->rowCount();
       $urlresultado='resultadoCnb.php';
-
 }
 
 
-if($_GET['gradoB']>=6 and $_GET['gradoB']<=9){
+if($_GET['gradoB']>=6 and $_GET['gradoB']<=11){
 
      $q3 = ("SELECT * FROM registropruebacomprension6p as registro left join cuestionario on registro.idLectura=cuestionario.idLectura where cuestionario.idLectura=:idLectura and registro.idUsuario=:idUsuario and cuestionario.idCuestionario=:idCuestionario");
 
@@ -164,35 +164,70 @@ if($_GET['gradoB']>=6 and $_GET['gradoB']<=9){
 
 //cambiamos link para prueba cnb : aqui ya se incluye reconocimiento de voz
 
+  if($_GET['gradoB']>=1 and $_GET['gradoB']<=2  or  $_SESSION['grado']>=1 and $_SESSION['grado']<=2){
+    $rutaCnb='cnb.php';
+    $urlresultado='resultadoCnb.php';
 
-  if($_GET['gradoB']>=3 or  $_SESSION['grado']<=3){
+  }
+
+  if($_GET['gradoB']==3 or  $_SESSION['grado']==3){
     $rutaCnb='cnbReconocimiento.php';
     $urlresultado='resultadoCnb3p.php';
-
-  }else{
-    $rutaCnb='cnb.php';
 
   }
 
 
   if($_GET['gradoB']==4 or  $_SESSION['grado']==4){
-
+    $rutaCnb='cnbReconocimiento.php';
     $urlresultado='resultadoCnb4p.php';
 
   }   
 
   if($_GET['gradoB']==5 or  $_SESSION['grado']==5){
-
+    $rutaCnb='cnbReconocimiento.php';
     $urlresultado='resultadoCnb5p.php';
 
   } 
   
 
-    if($_GET['gradoB']>=6 and  $_SESSION['grado']<=9){
-
+    if($_GET['gradoB']==6 or  $_SESSION['grado']==6){
+  $rutaCnb='cnbReconocimiento.php';
     $urlresultado='resultadoCnb6p.php';
 
-  }     
+  }  
+
+      if($_GET['gradoB']==7 or  $_SESSION['grado']==7){
+  $rutaCnb='cnbReconocimiento.php';
+    $urlresultado='resultadoCnb6p.php';
+
+  } 
+
+        if($_GET['gradoB']==8 or  $_SESSION['grado']==8){
+  $rutaCnb='cnbReconocimiento.php';
+    $urlresultado='resultadoCnb6p.php';
+
+  } 
+
+          if($_GET['gradoB']==9 or  $_SESSION['grado']==9){
+  $rutaCnb='cnbReconocimiento.php';
+    $urlresultado='resultadoCnb6p.php';
+
+  }
+
+            if($_GET['gradoB']==10 or  $_SESSION['grado']==10){
+  $rutaCnb='cnbReconocimiento.php';
+    $urlresultado='resultadoCnb6p.php';
+
+  }  
+
+              if($_GET['gradoB']==11 or  $_SESSION['grado']==11){
+  $rutaCnb='cnbReconocimiento.php';
+    $urlresultado='resultadoCnb6p.php';
+
+  } 
+
+
+
  ?>
 
 
@@ -406,7 +441,7 @@ if($_GET['gradoB']>=6 and $_GET['gradoB']<=9){
 
 
       <div class="col-md-8 col-xs-8 pag-center">
-
+   
          <div class="col-md-12" style="margin-top: 60px;">
           <?php while(@$row1=$mostrarLectura->fetch(PDO::FETCH_ASSOC)){   
             
@@ -418,7 +453,7 @@ if($_GET['gradoB']>=6 and $_GET['gradoB']<=9){
                 </div>
                 <div class="skew l"></div>
                 <div class="main">
-                  <div style="text-align:center; color: white;"><h3 style="margin-top:6px">Lectura: <?php echo $row1['nombreLectura']; ?></h3></div>   
+                  <div style="text-align:center; color: white;"><h3 style="margin-top:6px">Lectura: <?php echo $row1['nombreLectura'];?></h3></div>   
                 </div>
                 <div class="skew r"></div>                
                 <div class="bk r">
@@ -430,6 +465,7 @@ if($_GET['gradoB']>=6 and $_GET['gradoB']<=9){
               <hr>
               <h4>Actividades Lectoras</h4>              
               <a href="pisa1p.php?noLectura=<?php echo $row1['idLectura']; ?>&intento=<?php echo $hayIntentos1; ?>" class="btn align-center botonAgg-1" style="color: white; background-color:#3498db; ">1) Prueba Comprensión - Según Pisa</a>
+             
               <a href="<?php echo $rutaCnb;?>?noLectura=<?php echo $row1['idLectura']; ?>&intento=<?php echo $hayIntentos2; ?>&gradoB=<?php echo $_GET['gradoB']; ?>" class="btn align-center botonAgg-1" style="color: white; background-color:#27ae60; ">2) Prueba Comprensión - Según CNB</a>             
               <a href="glosario.php?noLectura=<?php echo $row1['idLectura']; ?>" class="btn align-center botonAgg-1" style="color: white; background-color:#ff4757; ">3) Mi vocabulario</a>
                <a href="cuentame.php?noLectura=<?php echo $row1['idLectura']; ?>" class="btn align-center botonAgg-1" style="color: white; background-color:#e67e22; ">4) Con tus palabras</a>

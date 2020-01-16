@@ -371,6 +371,7 @@ input#fort:checked ~ label  {
  <?php } ?>
  <input type="text" name="idUsuario" id="" value="<?php echo $_SESSION['idUsuario']; ?>" style="display: none;">
 
+  
  <input type="text" name="idLecturaEnviado" id="idLecturaEnviar" value="" style="display: none;">
  <input type="text" name="cantidadPreguntas" value="<?php echo $consulta; ?>" style="display: none;">
   <input type="text" name="tiempo" id="tiempo" value="" style="display: none;">

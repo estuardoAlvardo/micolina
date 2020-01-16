@@ -269,7 +269,9 @@ require("../../conection/conexion.php");
   ?>
   <h4>Audio</h4>
   <p id="audioText" style="display: none;"><?php echo $_SESSION['audio']; ?></p>
- <a onclick="reproducirAud();" class="btn btn-default botonAgg-1" style="background-color: #e67e22; border:1px solid #e67e22; color:white; ">Audio</a>
+<audio controls  style="border-radius: 25px;" class="cajaDescripcion">
+                  <source src="<?php echo $_SESSION['uri'].$row1['audio']; ?>" />
+                </audio> 
 
 
 <?php } ?>

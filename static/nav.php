@@ -115,7 +115,7 @@ function directorioNivelesNav($nivell){
   <!--NAVEGACION CONTENIDO FIJO -->
 
    <div class="row">
-       <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12  mst-navegacion" style="background-color: background-color: #ffffff;">
+       <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 " style=" box-shadow: 10px 0px 20px; background-color: background-color: #ffffff;">
            <div class="col-md-12">
               <!-- en produccion se cambiara en base si el logo no tiene nombre 
               <h1 class="txt-fuente txt-colegio" style="float:right;"><?php echo $nameCole; ?></h1>
@@ -152,7 +152,7 @@ function directorioNivelesNav($nivell){
   <!--NAVEGACION CONTENIDO FIJO -->
 
    <div class="row">
-       <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12  mst-navegacion">
+       <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12  mst-navegacion" style="background-color: #ffffff;">
            <div class="col-md-12">
               <!-- en produccion se cambiara en base si el logo no tiene nombre 
               <h1 class="txt-fuente txt-colegio" style="float:right;"><?php echo $nameCole; ?></h1>

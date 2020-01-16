@@ -58,7 +58,7 @@ $v='#2ecc71';
 
 //obtenemos la semana actual
 $noSemanaActual = date("W"); 
-
+$noSemanaActual=$noSemanaActual-2;
 
 
 

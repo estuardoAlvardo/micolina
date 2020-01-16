@@ -33,6 +33,7 @@ require("../conection/conexion.php");
       $gradoBuscar=$_SESSION['grado'];
     }
 
+    
 
 
     $q1 = ("SELECT * FROM atomolector where grado=:grado and noLecturaDiaria=0");
@@ -189,6 +190,7 @@ $noSemanaActual = date("W"); //produccion
                   background-image: url(<?php echo $_SESSION['uri'].$row1['rutaLectura'].'1.jpg'; ?>); background-size: 70%; background-repeat:no-repeat;">
                                   
                   </div>
+
                   <div class="col-md-7" style=" min-height: 175px; color: black;">
                     <h4 style=""><?php echo $row1['nombreLectura']; ?></h4>
                     <h5 style="text-align: left;"><?php echo "Tipo Lectura: ".$row1['tipoLectura']; ?></h5>
@@ -204,8 +206,10 @@ $noSemanaActual = date("W"); //produccion
 
                 </div>                 
                </div>
+
              </a>
              <div class="col-md-1"></div>
+             
 
 
              <!-- renderizado imagen pura fin -->

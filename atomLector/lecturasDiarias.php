@@ -37,12 +37,12 @@ require("../conection/conexion.php");
 //funciones para verificar la semanas
 
     //semana prueba 
-$semanaPrueba=1;
+
 //verificar la semana 
 setlocale(LC_ALL,"es_ES");
 $dias = array("domingo","lunes","martes","miercoles","jueves","viernes","sabado");;
 $noSemanaActual = date("W"); //produccion
-
+$semanaPrueba=$noSemanaActual-2;
 $diaSemanaSet=$dias[date("w")];
 
  
@@ -386,7 +386,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
                 @$h+=1;//dias de la semana 1=lunes, 2=martes,3=miercoles, 4=jueves, 5=viernes
 
                 //convertimos $h en dias de la semana
-                $bloqueante='display:block';
+                $bloqueante='display:block;';
                 switch ($h) {
                   case 1:
                     $diaSemanaGet='lunes';
@@ -426,13 +426,14 @@ if($_SESSION['tipoUsuario']==1){
 
                   $activo='activo';
                   $activoOjo='glyphicon glyphicon-eye-open';
-                  $estiloActivo=' ';
-
+                  $estiloActivo='pointer-events:auto;';
+                  $link='pointer-events: auto; cursor:pointer; ';
 
                 }else{
-                   $activo='inactivo';
+                  $activo='inactivo';
+                  $estiloActivo='cursor: not-allowed;  -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%); pointer-events: none;';
                   $activoOjo='glyphicon glyphicon-eye-close';
-                  $estiloActivo='cursor: not-allowed;  pointer-events: none; -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%);';
+                  $link='pointer-events: none;';                   
 
                 }
 }
@@ -554,8 +555,8 @@ if($h==1){ echo "L"; $background="#2980b9";
                   }  ?></div>
 
 
-       <a href="<?php echo 'p1/mostrarLect1.php?idLectura='.$rowDatosLecturas['idLectura'].'&gradoB='.$gradoBuscar; ?>" style="text-decoration:none; color: black; <?php echo $bloqueante; ?>  ">
-              <div class="timeline-panel"  style="border:0px; cursor: pointer; margin-left: -70px; <?php echo $estiloActivo; ?>">
+       <a href="<?php echo 'p1/mostrarLect1.php?idLectura='.$rowDatosLecturas['idLectura'].'&gradoB='.$gradoBuscar; ?>" style="<?php echo $link; ?>text-decoration:none;  color: black; <?php echo $bloqueante; ?>  ">
+              <div class="timeline-panel"  style=" border:0px; margin-left: -70px; <?php echo $estiloActivo; ?>">
                 <div class="timeline-heading" >
                   <h4 class="timeline-title" style="margin-top: 30px;"><?php echo $rowDatosLecturas['nombreLectura']; ?></h4>
                   <p><small class="text-muted"><i class="glyphicon glyphicon-bookmark"></i> <?php echo $rowDatosLecturas['tipoLectura']; ?></small></p>

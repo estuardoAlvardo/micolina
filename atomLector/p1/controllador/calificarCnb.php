@@ -106,7 +106,7 @@ $insertarCuestionario->bindparam(':totalObtenido',$total);
 
  $insertarCuestionario->execute();
 
-header("location:../resultadoCnb.php?idLectura=".$_POST['idLecturaEnviado']."&idUsuario=".$_POST['idUsuario']);
+header("location:../resultadoCnb.php?idLectura=".$_POST['idLecturaEnviado']."&idUsuario=".$_POST['idUsuario']."&intento=".$_POST['intento']);
 
 
 ?>

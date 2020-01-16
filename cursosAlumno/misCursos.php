@@ -55,7 +55,7 @@ $v='#2ecc71';
 //obtenemos la semana actual
 $noSemanaActual = date("W"); 
 //Buscar Lectura Correspondiente al dia - Lecturas diarias
-$semanaModificar=1; //tiene que ser igual a = $noSemanaActual;
+$semanaModificar=$noSemanaActual-2; //tiene que ser igual a = $noSemanaActual;
 
 $query1 = ("SELECT nombreLectura,noLecturaDiaria FROM atomolector where grado=:grado and semana=:semana");
 $getLecturaDiaria = $dbConn->prepare($query1);
@@ -489,7 +489,7 @@ $("i").click(function() {
                           <div class="md-chip-img">
                             <span class="md-chip-span pink">&nbsp;</span>
                           </div>
-                          <span class="md-chip-text">Semana  <?php echo $noSemanaActual; ?> </span>
+                          <span class="md-chip-text">Semana  <?php echo $semanaModificar;; ?> </span>
                         </div>
                               <div id="timeline-wrap">
                             <div id="timeline"></div>
@@ -502,7 +502,7 @@ $("i").click(function() {
 
                             <!-- This is the individual marker-->
                             <div class="marker m2 timeline-icon two">
-                                <p title=" <?php echo $_SESSION['martesLectura']; ?>">M</p>
+                                <p title=" <?php  $_SESSION['martesLectura']; ?>">M</p>
                             </div>
                             <!-- / marker -->
 
@@ -527,7 +527,7 @@ $("i").click(function() {
 
                              <!-- This is the individual marker-->
                             <div class="marker mlast timeline-icon five" style="margin-left: 5px;">
-                             <p title=" <?php echo $_SESSION['viernesLectura']; ?>">V</p>
+                             <p title=" <?php $_SESSION['viernesLectura']; ?>">V</p>
                             </div>
                             <!-- / marker -->                           
                           </div> 
@@ -553,7 +553,7 @@ $("i").click(function() {
                           <div class="md-chip-img">
                             <span class="md-chip-span pink">&nbsp;</span>
                           </div>
-                          <span title="<?php echo  $_SESSION['comprensionSemanal']; ?>"  class="md-chip-text">Semana <?php echo $noSemanaActual; ?> </span>
+                          <span title="<?php echo  $_SESSION['comprensionSemanal']; ?>"  class="md-chip-text">Semana <?php echo $semanaModificar;; ?> </span>
                         </div>
 
                     </div>
@@ -576,7 +576,7 @@ $("i").click(function() {
                           <div class="md-chip-img">
                             <span class="md-chip-span pink">&nbsp;</span>
                           </div>
-                          <span title="<?php echo $_SESSION['velocidadVer']; ?>" class="md-chip-text">Semana <?php echo $noSemanaActual; ?> </span>
+                          <span title="<?php echo $_SESSION['velocidadVer']; ?>" class="md-chip-text">Semana <?php echo $semanaModificar; ?> </span>
                         </div>
 
                     </div>
