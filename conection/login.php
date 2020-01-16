@@ -2,7 +2,7 @@
  session_start();
 include("conexion.php");
 
-$_SESSION['uri']='http://localhost/micolina/';
+$_SESSION['uri']='https://micolina.atomolector.com/';
 //datos recibido del usuario 
 
 $_POST["txtUsuario"];
